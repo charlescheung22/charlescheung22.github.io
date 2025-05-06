@@ -1,0 +1,30 @@
+[project]
+name = "personal-website"
+version = "0.1.0"
+description = "charlescheung22's personal website"
+readme = "docs/README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Charles Cheung" }
+]
+
+requires-python = ">=3.9"
+dependencies = ["fastapi[standard]", "python-dotenv"]
+
+
+[project.scripts]
+website = "backend.server:main"
+site = "backend.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/backend"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
